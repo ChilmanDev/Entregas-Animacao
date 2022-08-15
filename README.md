@@ -1,1 +1,1 @@
-# Repositório com todas entregas de Animação Computadorizada 2022/2
+# Repositório com todas entregas da disciplina Animação Computadorizada 2022/2
