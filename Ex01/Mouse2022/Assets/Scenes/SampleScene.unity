@@ -728,7 +728,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Very Ease In Easy Out
+  m_text: 'Linear
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1755,7 +1757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 440158256}
-  curvePrefab: {fileID: 908901936693266746, guid: 66aff9e87e184674183b4fc8fa4d9009,
+  curvePrefab: {fileID: 908901936693266746, guid: 4653b7d2be9e59a418fec7b4455d6b55,
     type: 3}
   speed: 0
   timeToTargetInSec: 5
@@ -2361,7 +2363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2083790139}
-  curvePrefab: {fileID: 908901936693266746, guid: 4653b7d2be9e59a418fec7b4455d6b55,
+  curvePrefab: {fileID: 908901936693266746, guid: 66aff9e87e184674183b4fc8fa4d9009,
     type: 3}
   speed: 0
   timeToTargetInSec: 5

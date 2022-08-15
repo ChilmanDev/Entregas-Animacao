@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9043916432138364751}
   - component: {fileID: 5599595299651835807}
   m_Layer: 0
-  m_Name: Unique
+  m_Name: EaseInEaseOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
