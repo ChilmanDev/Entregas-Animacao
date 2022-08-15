@@ -10,10 +10,6 @@ public class Seeker : MonoBehaviour
     [SerializeField]
     private GameObject curvePrefab;
     private BezierCurve curve;
-
-    [SerializeField]
-    private float speed;
-
     private float tParam;
 
     [SerializeField]

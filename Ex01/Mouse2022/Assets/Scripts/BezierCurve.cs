@@ -7,12 +7,12 @@ public enum Point { Start = 0, Control1 = 1, Control2 = 2, End = 3}
 [ExecuteInEditMode]
 public class BezierCurve : MonoBehaviour
 {
-    [SerializeField]
     private Vector2 min, max;
-
+    
+    [HideInInspector] 
     public Vector2[] points = new Vector2[4];
 
-    [SerializeField]
+    [SerializeField] 
     public int steps = 10;
 
     void Update()
