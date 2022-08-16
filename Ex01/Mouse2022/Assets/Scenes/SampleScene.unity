@@ -1759,7 +1759,6 @@ MonoBehaviour:
   target: {fileID: 440158256}
   curvePrefab: {fileID: 908901936693266746, guid: 4653b7d2be9e59a418fec7b4455d6b55,
     type: 3}
-  speed: 0
   timeToTargetInSec: 5
 --- !u!1 &1022096157
 GameObject:
@@ -2252,7 +2251,6 @@ MonoBehaviour:
   target: {fileID: 1874803914}
   curvePrefab: {fileID: 908901936693266746, guid: 9572921fddb79084591ad47bf8a0e68e,
     type: 3}
-  speed: 0
   timeToTargetInSec: 5
 --- !u!1001 &1519321929
 PrefabInstance:
@@ -2365,7 +2363,6 @@ MonoBehaviour:
   target: {fileID: 2083790139}
   curvePrefab: {fileID: 908901936693266746, guid: 66aff9e87e184674183b4fc8fa4d9009,
     type: 3}
-  speed: 0
   timeToTargetInSec: 5
 --- !u!1001 &1534061346
 PrefabInstance:
@@ -2478,7 +2475,6 @@ MonoBehaviour:
   target: {fileID: 1022096158}
   curvePrefab: {fileID: 908901936693266746, guid: 54df388dc28b4ba459f5b2b9bce036d2,
     type: 3}
-  speed: 0
   timeToTargetInSec: 5
 --- !u!1 &1587236119
 GameObject:
