@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(AudioSource))]
-public class AudioPeer : MonoBehaviour
+public class AudioConfigurator : MonoBehaviour
 {
     AudioSource _audioSource;
 
@@ -14,10 +14,12 @@ public class AudioPeer : MonoBehaviour
     public float[] _freqBand = new float[7];
 
     public int[] samplePerBand = new int[7];
-    
+
+
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        
     }
 
     
@@ -77,7 +79,7 @@ public class AudioPeer : MonoBehaviour
 
             average /= sampleCount;
 
-            _freqBand[i] = average * 10;
+            _freqBand[i] = average;
         }
     }
 }
