@@ -8,9 +8,12 @@ public class SnowFlakeGenerator : MonoBehaviour
     [SerializeField]
     AudioPeer _audioPeer;
 
-    int mainBranches, secondaryBranches;
+    float mainBranches, secondaryBranches;
     float mainBranchesSize, secondaryBranchesSize, scale;
     bool hollow, secondaryBranchesVariation;
+
+    [SerializeField]
+    GameObject snowFlake;
 
     /*
     Num de branches = 4-6-8
@@ -28,10 +31,12 @@ public class SnowFlakeGenerator : MonoBehaviour
 
     Max values:
     Sub-bass
-    0.26
+    0.26072
+    0.01516
 
     Bass
-    0.157
+    0.15749
+    0.02218
 
     Lower MidRange
     0.1
@@ -66,11 +71,15 @@ public class SnowFlakeGenerator : MonoBehaviour
 
     void AnalizeAudio()
     {
-        // Num de branches = 4-6-8 -> Bass 0.157
+        // Num de branches = 6-8-10 -> Bass 0.157
 
-        int percentage = (int)((100f * (float)System.Math.Round(_audioPeer._freqBand[(int)FrequencyRange.Bass], 5)) / 0.157f);
 
-        mainBranches = 4 + (((int)(percentage / 33) * 2) < 3 ? (int)(percentage / 33) * 2 : 4);
+        //int percentage = (int)((100f * (float)System.Math.Round(_audioPeer._freqBand[(int)FrequencyRange.Bass], 5)) / (0.02218f * 2));
+        float percentage = ((float)System.Math.Round(_audioPeer._freqBand[(int)FrequencyRange.Bass], 5)) / (0.02218f * 2);
+
+        //mainBranches = 6 + (((int)(percentage / 33) * 2) < 3 ? (int)(percentage / 33) * 2 : 4);
+
+        mainBranches = 6f + (percentage * 4f);
 
 
     }
@@ -78,6 +87,6 @@ public class SnowFlakeGenerator : MonoBehaviour
     void UpdateSnowflake()
     {
         //Create main branches
-
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Main_Branches" , mainBranches);  
     }
 }

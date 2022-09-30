@@ -52,7 +52,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Main_Branches: 6
+    - _Main_Branches: 9.544635
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Secondary_Branches: 5

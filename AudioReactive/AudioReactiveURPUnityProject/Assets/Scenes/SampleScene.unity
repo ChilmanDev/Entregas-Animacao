@@ -719,7 +719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -341.99994, y: 245}
+  m_AnchoredPosition: {x: -342, y: 245}
   m_SizeDelta: {x: 0, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624977937
@@ -1994,7 +1994,7 @@ GameObject:
   - component: {fileID: 1150909938}
   - component: {fileID: 1150909937}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Snowflake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2585,6 +2585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioPeer: {fileID: 624977937}
+  snowFlake: {fileID: 1150909936}
 --- !u!4 &1745962759
 Transform:
   m_ObjectHideFlags: 0
