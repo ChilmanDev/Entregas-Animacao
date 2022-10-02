@@ -52,11 +52,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Main_Branches: 9.544635
+    - _Center_Cross_Thickness: 0.07783019
+    - _Center_Fill: 0.95454544
+    - _Main_Branches: 7.050496
+    - _Main_Branches_Thickness: 0.55085754
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Secondary_Branches: 5
+    - _Secondary_Branches: 5.452362
     - _Secondary_Branches_Size: 0.1
+    - _Secondary_Branches_Thickness: 0.34774774
     - _Star_Grow: 0
     m_Colors: []
   m_BuildTextureStacks: []

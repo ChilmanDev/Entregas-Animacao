@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FrequencyRange { SubBass, Bass, LowerMidRange, MidRange, UpperMidRange, Presence, Brilliance}
+public enum FrequencyRange {SubBass, Bass, LowerMidRange, MidRange, UpperMidRange, Presence, Brilliance}
 
 [RequireComponent (typeof(AudioSource))]
 public class AudioPeer : MonoBehaviour
