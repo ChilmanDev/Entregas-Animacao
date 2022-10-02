@@ -33,6 +33,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
     [SerializeField]
     FrequencyConfig _frequencyConfig;
+
+    [SerializeField]
+    bool useBuffer;
     //FrequencyRange[] frequencyControl = new FrequencyRange[7];
 
     /*
@@ -89,7 +92,7 @@ public class SnowFlakeModifier : MonoBehaviour
     void Update()
     {   
         AnalizeAudio();
-        UpdateSnowflake();
+        UpdateSnowflakeShader();
     }
 
     void AnalizeAudio()
@@ -120,7 +123,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
     void UpdateMainBranchesAmount(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
+
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
 
         //Min = 6f      Max = 10f
         mainBranches = 6f + (percentage * 4f);
@@ -128,15 +133,19 @@ public class SnowFlakeModifier : MonoBehaviour
 
     void UpdateMainBranchesThickness(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
 
-        //Min = 0.55f   Max = 0.65f
-        mainBranchesThicc = (percentage * 0.10f) + 0.55f;
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
+
+        //Min = 0.55f   Max = 0.6f
+        mainBranchesThicc = (percentage * 0.05f) + 0.55f;
     }
 
     void UpdateSecondaryBranchesAmount(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
+
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
 
         //Min = 2f      Max = 10f
         secondaryBranches = (percentage * 8f) + 2f;
@@ -144,7 +153,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
     void UpdateSecondaryBranchesThickness(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
+
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
 
         //Min = 0.2f    Max = 0.8f
         secondaryBranchesThicc = (percentage * 0.6f) + 0.2f;
@@ -152,7 +163,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
     void UpdateSecondaryBranchesGap(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
+
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
 
         //Min = 0f      Max = 0.3f
         secondaryBranchesGap = (percentage * 0.3f);
@@ -160,21 +173,25 @@ public class SnowFlakeModifier : MonoBehaviour
 
     void UpdateCenterFill(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
 
-        //Min = 1f      Max = 0.9f
-        centerFill = 1 - (percentage * 0.1f);
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
+
+        //Min = 0.95f      Max = 1f
+        centerFill = (percentage * 0.05f) + 0.95f;
     }
 
     void UpdateScale(FrequencyRange range, float average_amp)
     {
-        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer._freqBand[(int)range], 5)) / (average_amp * 2), 0f, 1f);
+        if (range == FrequencyRange.None) return;
 
-        //Min = 0.5f    Max = 2f
-        scale = (percentage * 1.5f) + 0.5f;
+        float percentage = Mathf.Clamp(((float)System.Math.Round(_audioPeer.getBand((int)range, useBuffer), 5)) / (average_amp * 2), 0f, 1f);
+
+        //Min = 0.7f    Max = 1.3f
+        scale = (percentage * 0.6f) + 0.7f;
     }
 
-    void UpdateSnowflake()
+    void UpdateSnowflakeShader()
     {
         //Set ammount of main branches
         snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Main_Branches" , mainBranches);  
@@ -189,12 +206,12 @@ public class SnowFlakeModifier : MonoBehaviour
         snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches_Thickness", secondaryBranchesThicc);
 
         //Set secondary branches gap
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Center_Cross_Thickness", secondaryBranchesGap);
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches_Gap", secondaryBranchesGap);
 
         //Set center fill
         snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Center_Fill", centerFill);
 
         //Set scale
-        snowFlake.transform.localScale.Set(scale * startScale, scale * startScale, scale * startScale);
+        snowFlake.transform.localScale = new Vector3(scale * startScale, scale * startScale, scale * startScale);
     }
 }

@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FrequencyRange {SubBass, Bass, LowerMidRange, MidRange, UpperMidRange, Presence, Brilliance}
+public enum FrequencyRange {None = -1, SubBass, Bass, LowerMidRange, MidRange, UpperMidRange, Presence, Brilliance}
 
 [RequireComponent (typeof(AudioSource))]
 public class AudioPeer : MonoBehaviour
 {
     AudioSource _audioSource;
 
-    [HideInInspector]
-    public float[] _samples = new float[512];
-
-    [HideInInspector]
-    public float[] _freqBand = new float[7];
+    float[] _samples = new float[512];
+    float[] _freqBand = new float[7];
+    float[] _bandBuffer = new float[7];
+    float[] _bufferRate = new float[7];
 
     public int[] samplePerBand = new int[7];
     
@@ -27,11 +26,37 @@ public class AudioPeer : MonoBehaviour
     {
         GetSpectrumAudioSource();
         MakeFrequencyBands();
+        BandBuffer();
     }
 
     void GetSpectrumAudioSource()
     {
         _audioSource.GetSpectrumData(_samples, 0, FFTWindow.Blackman);
+    }
+
+    void BandBuffer()
+    {
+        for (int i = 0; i < _freqBand.Length; i++)
+        {
+            //_bufferRate[i] = 0.1f;
+
+            _bufferRate[i] = Mathf.Abs((_bandBuffer[i] - _freqBand[i]) * 10f);
+
+            _bandBuffer[i] = Mathf.MoveTowards(_bandBuffer[i], _freqBand[i], _bufferRate[i] * Time.deltaTime);
+            // if(_freqBand[i] > _bandBuffer[i])
+            // {
+            //     _bufferRate[i] = 0.005f;
+            //     _bandBuffer[i] = Mathf.MoveTowards(_bandBuffer[i], _freqBand[i], _bufferRate[i] * Time.deltaTime);
+            //     _bandBuffer[i] = _freqBand[i];
+            //     _bufferDecrease[i] = 0.005f;
+            // }
+            // if(_freqBand[i] < _bandBuffer[i])
+            // {
+            //     _bufferRate[i] = 0.005f;
+            //     _bandBuffer[i] -= _bufferDecrease[i];
+            //     _bufferDecrease[i] *= 1.2f; 
+            // }
+        }
     }
 
     void MakeFrequencyBands()
@@ -81,5 +106,10 @@ public class AudioPeer : MonoBehaviour
 
             _freqBand[i] = average;
         }
+    }
+
+    public float getBand(int rangeIndex, bool useBuffer)
+    {
+        return useBuffer ? _bandBuffer[rangeIndex] : _freqBand[rangeIndex];
     }
 }

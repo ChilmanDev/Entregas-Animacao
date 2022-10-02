@@ -11,15 +11,15 @@ public class CubesModifier : MonoBehaviour
     public float scaleMultplier = 1f;
 
     float[] max = new float[7]{0f,0f,0f,0f,0f,0f,0f};
-
-
-
     float[] count = new float[7]{0f,0f,0f,0f,0f,0f,0f};
     float[] sum = new float[7]{0f,0f,0f,0f,0f,0f,0f};
     float[] avr = new float[7];
 
     [SerializeField]
     GameObject debugHolder;
+
+    [SerializeField]
+    bool useBuffer;
 
     // Start is called before the first frame update
     void Start()
@@ -38,16 +38,16 @@ public class CubesModifier : MonoBehaviour
     {
         for (int i = 0; i < audioBandObjs.Length; i++)
         {
-            audioBandObjs[i].localScale = new Vector3(audioBandObjs[i].localScale.x, _audioPeer._freqBand[i] * scaleMultplier ,audioBandObjs[i].localScale.z);
+            audioBandObjs[i].localScale = new Vector3(audioBandObjs[i].localScale.x, _audioPeer.getBand(i, useBuffer) * scaleMultplier ,audioBandObjs[i].localScale.z);
 
-            if (_audioPeer._freqBand[i] > max[i])
-                max[i] = _audioPeer._freqBand[i];
+            if (_audioPeer.getBand(i, useBuffer) > max[i])
+                max[i] = _audioPeer.getBand(i, useBuffer);
 
             //audioBandObjs[i].GetChild(0).GetComponent<Text>().text = max[i].ToString();
             debugHolder.transform.GetChild(0).transform.GetChild(i).GetComponent<Text>().text = ((float)System.Math.Round(max[i], 5)).ToString();
 
             count[i]++;
-            sum[i]+= _audioPeer._freqBand[i];
+            sum[i]+= _audioPeer.getBand(i, useBuffer);
 
             avr[i] = sum[i] / count[i];
 
