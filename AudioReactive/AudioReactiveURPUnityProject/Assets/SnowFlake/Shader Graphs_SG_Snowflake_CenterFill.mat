@@ -35,7 +35,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Center_Fill: 0.9738938
+    - _Center_Fill: 0.9676991
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors: []
