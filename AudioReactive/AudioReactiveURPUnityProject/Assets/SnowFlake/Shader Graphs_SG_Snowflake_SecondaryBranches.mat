@@ -50,6 +50,6 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Secondary_Branches: 5.1993685
+    - _Secondary_Branches: 3.8634033
     m_Colors: []
   m_BuildTextureStacks: []
