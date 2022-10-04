@@ -53,15 +53,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Center_Cross_Thickness: 0.28279817
-    - _Center_Fill: 1
-    - _Main_Branches: 7.512583
-    - _Main_Branches_Thickness: 0.5695288
+    - _Center_Fill: 0.9738938
+    - _Main_Branches: 7.179691
+    - _Main_Branches_Thickness: 0.5563726
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Secondary_Branches: 7.711804
-    - _Secondary_Branches_Gap: 0.3
+    - _Secondary_Branches: 6.0142126
+    - _Secondary_Branches_Gap: 0.07155963
     - _Secondary_Branches_Size: 0.1
-    - _Secondary_Branches_Thickness: 0.685022
+    - _Secondary_Branches_Thickness: 0.40044054
     - _Star_Grow: 0
     m_Colors: []
   m_BuildTextureStacks: []
