@@ -37,7 +37,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Secondary_Branches_Gap: 0.07431192
+    - _Secondary_Branches_Gap: 0
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &1083650724297273614

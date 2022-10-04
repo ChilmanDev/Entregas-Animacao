@@ -92,7 +92,6 @@ public class SnowFlakeModifier : MonoBehaviour
     void Update()
     {   
         AnalizeAudio();
-        UpdateSnowflakeShader();
     }
 
     void AnalizeAudio()
@@ -129,6 +128,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 6f      Max = 10f
         mainBranches = 6f + (percentage * 4f);
+
+        //Set ammount of main branches
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Main_Branches" , mainBranches); 
     }
 
     void UpdateMainBranchesThickness(FrequencyRange range, float average_amp)
@@ -139,6 +141,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 0.55f   Max = 0.6f
         mainBranchesThicc = (percentage * 0.05f) + 0.55f;
+
+        //Set thickness of main branches
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Main_Branches_Thickness" , mainBranchesThicc);
     }
 
     void UpdateSecondaryBranchesAmount(FrequencyRange range, float average_amp)
@@ -149,6 +154,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 2f      Max = 10f
         secondaryBranches = (percentage * 8f) + 2f;
+
+        //Set ammount of secondary branches
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches", secondaryBranches);
     }
 
     void UpdateSecondaryBranchesThickness(FrequencyRange range, float average_amp)
@@ -159,6 +167,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 0.2f    Max = 0.8f
         secondaryBranchesThicc = (percentage * 0.6f) + 0.2f;
+
+        //Set thickness of secondary branches
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches_Thickness", secondaryBranchesThicc);
     }
 
     void UpdateSecondaryBranchesGap(FrequencyRange range, float average_amp)
@@ -169,6 +180,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 0f      Max = 0.3f
         secondaryBranchesGap = (percentage * 0.3f);
+
+        //Set secondary branches gap
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches_Gap", secondaryBranchesGap);
     }
 
     void UpdateCenterFill(FrequencyRange range, float average_amp)
@@ -179,6 +193,9 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 0.95f      Max = 1f
         centerFill = (percentage * 0.05f) + 0.95f;
+
+        //Set center fill
+        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Center_Fill", centerFill);
     }
 
     void UpdateScale(FrequencyRange range, float average_amp)
@@ -189,27 +206,6 @@ public class SnowFlakeModifier : MonoBehaviour
 
         //Min = 0.7f    Max = 1.3f
         scale = (percentage * 0.6f) + 0.7f;
-    }
-
-    void UpdateSnowflakeShader()
-    {
-        //Set ammount of main branches
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Main_Branches" , mainBranches);  
-
-        //Set thickness of main branches
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Main_Branches_Thickness" , mainBranchesThicc);
-
-        //Set ammount of secondary branches
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches", secondaryBranches);
-
-        //Set thickness of secondary branches
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches_Thickness", secondaryBranchesThicc);
-
-        //Set secondary branches gap
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Secondary_Branches_Gap", secondaryBranchesGap);
-
-        //Set center fill
-        snowFlake.GetComponent<Renderer>().sharedMaterial.SetFloat("_Center_Fill", centerFill);
 
         //Set scale
         snowFlake.transform.localScale = new Vector3(scale * startScale, scale * startScale, scale * startScale);
