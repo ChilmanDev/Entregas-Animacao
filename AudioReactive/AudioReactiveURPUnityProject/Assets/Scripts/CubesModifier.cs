@@ -38,7 +38,7 @@ public class CubesModifier : MonoBehaviour
     {
         for (int i = 0; i < audioBandObjs.Length; i++)
         {
-            audioBandObjs[i].localScale = new Vector3(audioBandObjs[i].localScale.x, _audioPeer.getBand(i, useBuffer) * scaleMultplier ,audioBandObjs[i].localScale.z);
+            audioBandObjs[i].localScale = new Vector3(audioBandObjs[i].localScale.x, Mathf.Clamp(_audioPeer.getBand(i, useBuffer) * scaleMultplier, 0f, 3f) ,audioBandObjs[i].localScale.z);
 
             if (_audioPeer.getBand(i, useBuffer) > max[i])
                 max[i] = _audioPeer.getBand(i, useBuffer);
