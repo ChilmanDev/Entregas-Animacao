@@ -296,7 +296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -742.6842, y: 407.17776}
+  m_AnchoredPosition: {x: -742.6842, y: 401}
   m_SizeDelta: {x: 100, y: 72.4}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &26966576
@@ -783,8 +783,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 823.5, y: -50.900024}
-  m_SizeDelta: {x: 1388.9, y: 50}
+  m_AnchoredPosition: {x: 450.75696, y: -50.900024}
+  m_SizeDelta: {x: 643.415, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234921148
 MonoBehaviour:
@@ -2490,8 +2490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 647.9, y: 285.854}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 696, y: 369}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887911616
 MonoBehaviour:
@@ -2561,7 +2561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 67e586e745fdb4b41b6ca4bdd3c16f02, type: 2}
+  m_Material: {fileID: 2100000, guid: 1f7bc010a2f3e31408dfcf056e33458b, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2601,8 +2601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   audioSource: {fileID: 624977938}
-  playImage: {fileID: 2100000, guid: 67e586e745fdb4b41b6ca4bdd3c16f02, type: 2}
-  pauseImage: {fileID: 2100000, guid: f268f000136bc2349a9168dab9a7823d, type: 2}
+  playImage: {fileID: 2100000, guid: 1f7bc010a2f3e31408dfcf056e33458b, type: 2}
+  pauseImage: {fileID: 2100000, guid: 4554747bff4a6be419e65cc5e341d69c, type: 2}
 --- !u!1 &939030785
 GameObject:
   m_ObjectHideFlags: 0
