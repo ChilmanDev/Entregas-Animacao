@@ -24,7 +24,6 @@ public class PausePlay : MonoBehaviour
 
     public void TooglePause()
     {
-        Debug.Log("hey");
         paused = !paused;
 
         if(paused) audioSource.Pause();
@@ -37,7 +36,7 @@ public class PausePlay : MonoBehaviour
             paused = true;
         }
 
-        _button.image.material = paused ? pauseImage : playImage;
+        _button.image.material = paused ? playImage : pauseImage;
 
     }
 }
