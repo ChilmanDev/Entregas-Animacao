@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlowVariation : MonoBehaviour
 {
     
-    float duration  = 1.0f;
+    float duration  = 2.0f;
     float originalRange;
 
     Light lt;
