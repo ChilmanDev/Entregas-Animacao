@@ -21,7 +21,19 @@ public class GameManager : MonoBehaviour
     GameObject mouseEndEvent;
 
     [SerializeField]
+    GameObject stepsEvent;
+
+    [SerializeField]
+    GameObject endStepsEvent;
+
+    [SerializeField]
     GameObject leanHandsEvent;
+
+    [SerializeField]
+    Transform lookDownTarget;
+
+    [SerializeField]
+    Transform lookAroundTarget;
 
     [SerializeField]
     GameObject endScneneEvent;
@@ -55,12 +67,14 @@ public class GameManager : MonoBehaviour
                 playerRigController.SetAsChild(pickUp.GetComponent<TriggerEvent>().target);
                 pickUp.GetComponent<TriggerEvent>().target.GetComponent<Animator>().SetTrigger("TPickUp");
                 Destroy(pickUp);
+                playerRigController.SetOberveTarget(lookAroundTarget);
             }
         }
         if(mouseEvent)
         {
             if(mouseEvent.GetComponent<TriggerEvent>().trigger)
             {
+                //playerRigController.StopObserveTarget();
                 playerRigController.SetWalk(false);
                 playerRigController.SetOberveTarget(mouseEvent.GetComponent<TriggerEvent>().target);
                 mouse.Run();
@@ -73,6 +87,7 @@ public class GameManager : MonoBehaviour
             {
                 playerRigController.StopObserveTarget();
                 Destroy(mouseEndEvent);
+                playerRigController.SetOberveTarget(lookAroundTarget);
             }
         }
         if(leanHandsEvent)
@@ -102,6 +117,23 @@ public class GameManager : MonoBehaviour
         }
 
         Time.timeScale = pause ? 0f : 1f;
+
+        if(stepsEvent)
+        {
+            if(stepsEvent.GetComponent<TriggerEvent>().trigger)
+            {
+                //playerRigController.StopObserveTarget();
+                playerRigController.SetOberveTarget(lookDownTarget);
+            }
+        }
+        if(endStepsEvent)
+        {
+            if(endStepsEvent.GetComponent<TriggerEvent>().trigger)
+            {
+                //playerRigController.StopObserveTarget();
+                playerRigController.SetOberveTarget(lookAroundTarget);
+            }
+        }
     }
 
     public void TogglePause()

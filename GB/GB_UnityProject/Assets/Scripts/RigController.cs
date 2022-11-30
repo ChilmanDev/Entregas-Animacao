@@ -78,8 +78,8 @@ public class RigController : MonoBehaviour
 
     public void SetOberveTarget(Transform target)
     {
-        StartCoroutine(DelayedLook(1.25f));
         observeTarget.SetTarget(target);
+        StartCoroutine(DelayedLook(1.25f));
     }
 
     public void StopObserveTarget()
